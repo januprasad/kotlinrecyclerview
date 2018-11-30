@@ -18,25 +18,24 @@ class PersonListAdapter(private val personList: ArrayList<Person>) : RecyclerVie
 
     override fun getItemCount() = personList.size
 
-
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.bindViews(personList[position])
     }
 
-
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val name = itemView.name
+        val age = itemView.age
         fun bindViews(person: Person) {
             name.text = person.name
             age.text = person.age.toString()
         }
-
-        val name = itemView.name
-        val age = itemView.age
     }
 
     fun updateList(newList: List<Person>) {
         val diffResult = DiffUtil.calculateDiff(MyDiffCallback(personList, newList))
         diffResult.dispatchUpdatesTo(this)
+        personList.clear()
+        personList.addAll(newList)
     }
 
 }
