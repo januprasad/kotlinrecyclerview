@@ -10,7 +10,7 @@ import wallet.coinome.hatio.`in`.recyclerviewsample.R
 
 
 class MainActivity : AppCompatActivity() {
-     val personList = DataProvider.oldPersonList;
+     val personList = PersonRepo.oldPersonList;
      val personListAdapter = PersonListAdapter(personList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +34,11 @@ class MainActivity : AppCompatActivity() {
         val id = item.itemId
         return when (id) {
             R.id.sort1 -> {
-                personListAdapter.updateList(DataProvider.sortByAge(oldList = personList))
+                personListAdapter.updateList(PersonRepo.sortByAge(oldList = personList))
                 true
             }
             R.id.sort2 -> {
-                personListAdapter.updateList(DataProvider.sortByName(oldList = personList))
+                personListAdapter.updateList(PersonRepo.sortByName(oldList = personList))
                 true
             }
 

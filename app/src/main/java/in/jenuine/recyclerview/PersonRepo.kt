@@ -2,7 +2,7 @@ package `in`.jenuine.recyclerview
 
 import java.util.ArrayList
 
-object DataProvider {
+object PersonRepo {
 
     val oldPersonList: ArrayList<Person>
         get() {
@@ -11,6 +11,7 @@ object DataProvider {
             persons.add(Person(2, 12, "Jack"))
             persons.add(Person(3, 8, "Michael"))
             persons.add(Person(4, 19, "Rafael"))
+            persons.add(Person(5, 20, "Samuel"))
             return persons
         }
 
